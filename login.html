@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sign In — AnuvadX</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-page">
+    <header class="site-header small">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <svg class="logo" width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="5" fill="#FFB05A" />
+            <path d="M7 8h10M7 12h6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="brand-text"><span class="brand-accent">Anuvad</span>X</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="auth-container">
+      <div class="auth-card">
+        <h2>Welcome Back</h2>
+        <p class="muted">Sign in to continue your translation journey</p>
+
+        <form id="loginForm" class="form">
+          <label class="label">Email
+            <input type="email" name="email" placeholder="Enter your email" required />
+          </label>
+
+          <label class="label">Password
+            <div class="password-row">
+              <input type="password" name="password" placeholder="Enter your password" required />
+              <button type="button" id="togglePwd" class="icon-btn" aria-label="Toggle password">👁️</button>
+            </div>
+          </label>
+
+          <div class="form-actions">
+            <button class="btn btn-cta full" type="submit">Sign In</button>
+          </div>
+        </form>
+
+        <div class="signup-link">Don't have an account? <a href="#">Sign Up</a></div>
+      </div>
+    </main>
+
+    <script>
+      document.getElementById('togglePwd').addEventListener('click', function(){
+        const inp = document.querySelector('input[name="password"]');
+        inp.type = inp.type === 'password' ? 'text' : 'password';
+      });
+
+      document.getElementById('loginForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        // Demo: mark user as logged in and redirect to the landing page translator section
+        try {
+          localStorage.setItem('anuvadx_logged', '1');
+        } catch (_) {}
+        window.location.href = 'index.html#translator';
+      });
+    </script>
+  </body>
+</html>

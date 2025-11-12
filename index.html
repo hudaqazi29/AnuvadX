@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>AnuvadX — Voice Translation for Indian languages</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="container header-inner">
+				<a class="brand" href="index.html">
+					<svg class="logo" width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="24" height="24" rx="5" fill="#FFB05A" />
+						<path d="M7 8h10M7 12h6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+					<span class="brand-text"><span class="brand-accent">Anuvad</span>X</span>
+				</a>
+				<nav class="nav">
+					<a class="nav-link" href="#features">Features</a>
+					<a class="nav-link" href="login.html">Login</a>
+					<a class="btn btn-cta" href="login.html">Get Started</a>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<section class="hero">
+				<div class="container hero-inner">
+					<div class="hero-copy">
+						<h1>AnuvadX</h1>
+						<p class="tagline">Bridging Indian languages with fast, accurate voice translation.</p>
+						<div class="hero-ctas">
+							<a class="btn btn-cta" href="login.html">Sign In</a>
+							<a class="btn btn-outline" href="#features">Learn More</a>
+						</div>
+					</div>
+								<div class="hero-art">
+						<div class="card mock-app">
+							<div class="mock-header">
+								<div class="mock-logo"></div>
+								<div class="mock-user">Test User</div>
+							</div>
+															<div class="mock-body">
+																<h3 class="card-click" data-title="Translation" data-desc="Translation across Indian languages.">Translation</h3>
+																<div class="mock-actions">
+																	<button id="enter-text-btn" class="btn small">Enter Text</button>
+																</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+							<section id="translator" class="container translator-section">
+								<div class="card">
+									<h3>Voice Translator</h3>
+									<div class="translator-grid">
+										<div>
+											<label>Source language</label>
+											<select id="source-lang">
+												<option value="">Select Source Language</option>
+												<option value="hi">Hindi</option>
+												<option value="bn">Bengali</option>
+												<option value="te">Telugu</option>
+												<option value="mr">Marathi</option>
+												<option value="ta">Tamil</option>
+												<option value="ur">Urdu</option>
+												<option value="gu">Gujarati</option>
+												<option value="kn">Kannada</option>
+												<option value="or">Odia</option>
+												<option value="pa">Punjabi</option>
+												<option value="ml">Malayalam</option>
+												<option value="as">Assamese</option>
+												<option value="mai">Maithili</option>
+												<option value="sat">Santali</option>
+												<option value="ks">Kashmiri</option>
+												<option value="ne">Nepali</option>
+												<option value="sd">Sindhi</option>
+												<option value="kok">Konkani</option>
+												<option value="doi">Dogri</option>
+												<option value="mni">Manipuri</option>
+												<option value="brx">Bodo</option>
+												<option value="sa">Sanskrit</option>
+											</select>
+										</div>
+										<div>
+											<label>Target language</label>
+											<select id="target-lang">
+												<option value="">Select Target Language</option>
+												<option value="hi">Hindi</option>
+												<option value="bn">Bengali</option>
+												<option value="te">Telugu</option>
+												<option value="mr">Marathi</option>
+												<option value="ta">Tamil</option>
+												<option value="ur">Urdu</option>
+												<option value="gu">Gujarati</option>
+												<option value="kn">Kannada</option>
+												<option value="or">Odia</option>
+												<option value="pa">Punjabi</option>
+												<option value="ml">Malayalam</option>
+												<option value="as">Assamese</option>
+												<option value="mai">Maithili</option>
+												<option value="sat">Santali</option>
+												<option value="ks">Kashmiri</option>
+												<option value="ne">Nepali</option>
+												<option value="sd">Sindhi</option>
+												<option value="kok">Konkani</option>
+												<option value="doi">Dogri</option>
+												<option value="mni">Manipuri</option>
+												<option value="brx">Bodo</option>
+												<option value="sa">Sanskrit</option>
+											</select>
+										</div>
+									</div>
+
+												<div class="audio-controls">
+													<button id="record-btn" class="btn btn-cta" onclick="startRecording()">Start Recording</button>
+													<button id="stop-btn" class="btn" onclick="stopRecording()" disabled>Stop Recording</button>
+													<button id="play-btn" class="btn" onclick="playTranslation()" disabled>Play Translation</button>
+												</div>
+												  <div class="status" id="status">Ready</div>
+												  <div id="transcription" class="translated" style="background:#f8f8ff;color:#333;display:none"></div>
+												  <div id="translated" class="translated" aria-live="polite"></div>
+								</div>
+							</section>
+					<section id="features" class="features container">
+						<div class="feature-grid">
+																						<div class="feature card-click" data-title="Real-time Voice Translation" data-desc="<p>Speak naturally — we transcribe your speech and return a clear translated text in the selected language.</p>
+																																												<div style='margin-top:10px;'>
+																																													<label style='display:block;margin-bottom:6px;font-weight:600'>Target language for modal</label>
+																																													<select id='modal-target-lang' style='padding:8px;border-radius:6px;border:1px solid #eee;'>
+																																														<option value='hi'>Hindi</option>
+																																														<option value='en'>English</option>
+																																														<option value='gu'>Gujarati</option>
+																																														<option value='ta'>Tamil</option>
+																																														<option value='te'>Telugu</option>
+																																														<option value='ml'>Malayalam</option>
+																																														<option value='kn'>Kannada</option>
+																																														<option value='bn'>Bengali</option>
+																																														<option value='mr'>Marathi</option>
+																																														<option value='pa'>Punjabi</option>
+																																														<option value='or'>Odia</option>
+																																														<option value='ur'>Urdu</option>
+																																													</select>
+																																													<div style='margin-top:10px;display:flex;gap:8px;align-items:center'>
+																																														<button id='modal-record-start' class='btn small'>Start Recording</button>
+																																														<button id='modal-record-stop' class='btn small' disabled>Stop</button>
+																																													</div>
+																																													<div id='modal-status' style='margin-top:8px;font-weight:600;color:#2b6b2f'>Ready</div>
+																																													<div id='modal-translated' style='margin-top:8px;padding:8px;border-radius:6px;background:#fff;border:1px solid #eee;display:none'></div>
+																																												</div>">
+																																												<svg class="feature-icon" width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 1v22" stroke="#FF8A00" stroke-width="1.5" stroke-linecap="round"/></svg>
+																																												<h4>Real-time Voice Translation</h4>
+																																												<p>Speak naturally — we transcribe your speech and return a clear translated text in the selected language.</p>
+																																										</div>
+
+													<div class="feature card-click" data-title="Indian languages" data-desc="<p>Comprehensive coverage of major Indian languages we support:</p><ul><li>Hindi</li><li>English</li><li>Gujarati</li><li>Tamil</li><li>Telugu</li><li>Malayalam</li><li>Kannada</li><li>Bengali</li><li>Marathi</li><li>Punjabi</li><li>Odia</li><li>Urdu</li></ul>">
+														<svg class="feature-icon" width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h10M3 18h14" stroke="#34A853" stroke-width="1.5" stroke-linecap="round"/></svg>
+														<h4>Indian languages</h4>
+														<p>Comprehensive coverage of major Indian languages and dialects.</p>
+													</div>
+
+							<div class="feature card-click" data-title="Document Upload" data-desc="Upload PDF or TXT files for quick translation of documents.">
+								<svg class="feature-icon" width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#6C63FF" stroke-width="1.5" stroke-linecap="round"/></svg>
+								<h4>Document Upload</h4>
+								<p>Upload PDF or TXT files for quick translation of documents.</p>
+							</div>
+						</div>
+					</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="container footer-inner">
+				<div>© <strong>AnuvadX</strong> — Voice-to-Voice Translation</div>
+				<div class="footer-links"><a href="#">Privacy</a> · <a href="#">Terms</a></div>
+			</div>
+		</footer>
+
+		<script>
+				// small: smooth scroll for in-page links
+				document.querySelectorAll('a[href^="#"]').forEach(a=>{
+					a.addEventListener('click', e=>{
+						e.preventDefault();
+						const t = document.querySelector(a.getAttribute('href'));
+						if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+					});
+				});
+
+				// Modal popup for clickable cards
+				(function(){
+					// create modal element
+					const modal = document.createElement('div');
+					modal.className = 'site-modal';
+					modal.innerHTML = `
+						<div class="site-modal-backdrop"></div>
+						<div class="site-modal-card">
+							<button class="site-modal-close" aria-label="Close">×</button>
+							<h3 class="site-modal-title"></h3>
+							<p class="site-modal-body"></p>
+						</div>
+					`;
+					document.body.appendChild(modal);
+
+					const titleEl = modal.querySelector('.site-modal-title');
+					const bodyEl = modal.querySelector('.site-modal-body');
+					const closeBtn = modal.querySelector('.site-modal-close');
+
+									function openModal(title, body){
+										titleEl.textContent = title || '';
+										// allow simple HTML in card data-desc (we control this content in the app)
+										bodyEl.innerHTML = body || '';
+										modal.classList.add('open');
+										document.body.style.overflow = 'hidden';
+
+										// If the modal contains the real-time recorder controls, wire them up
+										const startBtn = bodyEl.querySelector('#modal-record-start');
+										const stopBtn = bodyEl.querySelector('#modal-record-stop');
+										const statusEl = bodyEl.querySelector('#modal-status');
+										const translatedEl = bodyEl.querySelector('#modal-translated');
+										const targetSelect = bodyEl.querySelector('#modal-target-lang');
+
+										if(startBtn && stopBtn && statusEl){
+											let modalRecorder, modalChunks = [];
+
+											startBtn.addEventListener('click', async function(){
+												try{
+													const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+													modalRecorder = new MediaRecorder(stream);
+													modalChunks = [];
+													modalRecorder.ondataavailable = e => modalChunks.push(e.data);
+													modalRecorder.onstop = async () => {
+														const blob = new Blob(modalChunks, { type: 'audio/wav' });
+														statusEl.textContent = 'Translating...';
+														// send to /api/translate
+														const form = new FormData();
+														form.append('audio', blob, 'modal-recording.wav');
+														form.append('sourceLang', 'auto');
+														form.append('targetLang', targetSelect ? targetSelect.value : 'en');
+														try{
+																				const resp = await fetch('/api/translate', { method: 'POST', body: form });
+																					const data = await resp.json();
+																					if(data && data.translatedText){
+																						translatedEl.style.display = 'block';
+																						// show both transcription and translation if available
+																						let out = '';
+																						if(data.transcribedText) out += `Transcription: ${data.transcribedText}\n\n`;
+																						out += `Translation: ${data.translatedText}`;
+																						translatedEl.textContent = out;
+																						statusEl.textContent = 'Translation ready';
+																						// if server returned a ttsUrl, add a play button
+																						if(data.ttsUrl){
+																							let playBtn = bodyEl.querySelector('#modal-play-tts');
+																							if(!playBtn){
+																								playBtn = document.createElement('button');
+																								playBtn.id = 'modal-play-tts';
+																								playBtn.className = 'btn small';
+																								playBtn.textContent = 'Play Translated Audio';
+																								playBtn.style.marginLeft = '8px';
+																								playBtn.addEventListener('click', function(){
+																									const a = new Audio(data.ttsUrl);
+																									a.play();
+																								});
+																								bodyEl.querySelector('#modal-status').insertAdjacentElement('afterend', playBtn);
+																							}
+																						}
+																					} else {
+																						translatedEl.style.display = 'block';
+																						translatedEl.textContent = 'No translation returned.';
+																						statusEl.textContent = 'Ready';
+																					}
+														}catch(err){
+															console.error(err);
+															translatedEl.style.display = 'block';
+															translatedEl.textContent = 'Translation failed';
+															statusEl.textContent = 'Ready';
+														}
+													};
+													modalRecorder.start();
+													startBtn.disabled = true;
+													stopBtn.disabled = false;
+													statusEl.textContent = 'Listening...';
+												}catch(err){
+													alert('Unable to access microphone.');
+												}
+											});
+
+											stopBtn.addEventListener('click', function(){
+												if(modalRecorder && modalRecorder.state !== 'inactive'){
+													modalRecorder.stop();
+													startBtn.disabled = false;
+													stopBtn.disabled = true;
+													statusEl.textContent = 'Processing...';
+												}
+											});
+										}
+									}
+
+					function closeModal(){
+						modal.classList.remove('open');
+						document.body.style.overflow = ''; 
+					}
+
+					modal.querySelector('.site-modal-backdrop').addEventListener('click', closeModal);
+					closeBtn.addEventListener('click', closeModal);
+					document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+
+							document.querySelectorAll('.card-click').forEach(el=>{
+						el.style.cursor = 'pointer';
+						el.addEventListener('click', function(){
+							const t = el.getAttribute('data-title') || el.querySelector('h4')?.textContent || el.textContent.trim();
+							const d = el.getAttribute('data-desc') || el.querySelector('p')?.textContent || '';
+							openModal(t,d);
+						});
+					});
+				})();
+
+						// --- Translator recording logic (demo) ---
+						let mediaRecorder;
+						let audioChunks = [];
+						let audioBlob;
+
+						async function startRecording(){
+							try{
+								const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+								mediaRecorder = new MediaRecorder(stream);
+								audioChunks = [];
+								mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+														mediaRecorder.onstop = async () => {
+															audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+															document.getElementById('play-btn').disabled = false;
+															document.getElementById('status').textContent = 'Translating (mock)...';
+
+															// prepare form data
+															const form = new FormData();
+															form.append('audio', audioBlob, 'recording.wav');
+															form.append('sourceLang', document.getElementById('source-lang').value || 'auto');
+															form.append('targetLang', document.getElementById('target-lang').value || 'en');
+
+															try {
+																const resp = await fetch('/api/translate', { method: 'POST', body: form });
+																if (!resp.ok) throw new Error('Network response not ok');
+																const data = await resp.json();
+																if (data && data.translatedText) {
+																	// Show transcription if available
+																	if (data.transcribedText) {
+																		document.getElementById('transcription').style.display = 'block';
+																		document.getElementById('transcription').textContent = 'Transcription: ' + data.transcribedText;
+																	} else {
+																		document.getElementById('transcription').style.display = 'none';
+																	}
+																	document.getElementById('translated').textContent = data.translatedText;
+																	document.getElementById('status').textContent = 'Translation ready';
+																} else {
+																	document.getElementById('transcription').style.display = 'none';
+																	document.getElementById('translated').textContent = 'No translation returned.';
+																	document.getElementById('status').textContent = 'Ready';
+																}
+															} catch (err) {
+																console.error(err);
+																document.getElementById('transcription').style.display = 'none';
+																document.getElementById('translated').textContent = 'Translation failed (server unavailable).';
+																document.getElementById('status').textContent = 'Ready';
+															}
+														};
+								mediaRecorder.start();
+								document.getElementById('record-btn').disabled = true;
+								document.getElementById('stop-btn').disabled = false;
+								document.getElementById('status').textContent = 'Listening...';
+							}catch(err){
+								console.error(err);
+								alert('Microphone access denied or not available.');
+							}
+						}
+
+						function stopRecording(){
+							if(mediaRecorder && mediaRecorder.state !== 'inactive'){
+								mediaRecorder.stop();
+								document.getElementById('record-btn').disabled = false;
+								document.getElementById('stop-btn').disabled = true;
+								document.getElementById('status').textContent = 'Processing...';
+							}
+						}
+
+								function playTranslation(){
+									if(!audioBlob) return;
+									const audio = new Audio(URL.createObjectURL(audioBlob));
+									audio.play();
+									document.getElementById('status').textContent = 'Playing...';
+									audio.onended = () => document.getElementById('status').textContent = 'Ready';
+								}
+		</script>
+	</body>
+</html>
